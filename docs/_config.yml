@@ -1,0 +1,27 @@
+title: Recce Board
+description: Record shots on a recce, arrange them, play the board as a film.
+
+# No theme. The design lives in _layouts/default.html and assets/style.css, and
+# follows the app: petrol and amber, warm paper, the same colours the canvas and
+# the exports use.
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+# The pages carry no front matter — GitHub Pages takes each one's title from its
+# first heading. Stripping it stops the title appearing twice, since the layout
+# already prints it in the header.
+titles_from_headings:
+  strip_title: true
+
+nav:
+  - title: Overview
+    url: /
+  - title: Guide
+    url: /guide
+  - title: Support
+    url: /support
+  - title: Privacy
+    url: /privacy

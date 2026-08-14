@@ -1,0 +1,236 @@
+/* Recce Board — the app's palette, on the web.
+   Petrol is the tool colour, amber the warm content accent, and the page is the
+   same warm paper the canvas is. Light and dark both, because the app follows
+   the system appearance and this should too. */
+
+:root {
+  --petrol: #0E7C86;
+  --petrol-deep: #0A3B40;
+  --amber: #F5A623;
+  --paper: #FAF8F5;
+  --ink: #1C1B18;
+  --muted: #6A665E;
+  --rule: #E4DFD6;
+  --card: #FFFFFF;
+  --link: #0B6a73;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #16171A;
+    --ink: #F2F0EC;
+    --muted: #9A968E;
+    --rule: #2C2E33;
+    --card: #1E2024;
+    --link: #4FC3CE;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 17px/1.65 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI",
+        Roboto, "Helvetica Neue", Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+/* --- Masthead: the icon's own background, so the page opens on the app --- */
+
+.masthead {
+  background: radial-gradient(120% 140% at 12% 0%, #0F6F78 0%, var(--petrol-deep) 55%, #072a2e 100%);
+  color: #F4F7F7;
+  padding: 44px 24px 0;
+}
+
+.masthead-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.appicon {
+  width: 84px;
+  height: 84px;
+  border-radius: 20px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+  flex: none;
+}
+
+.eyebrow {
+  margin: 0 0 2px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.masthead h1 {
+  margin: 0;
+  font-size: 27px;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: #FFFFFF;
+}
+
+.nav {
+  max-width: 760px;
+  margin: 26px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.nav a {
+  padding: 9px 15px 12px;
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+
+.nav a:hover { color: #FFFFFF; }
+
+.nav a.here {
+  color: #FFFFFF;
+  border-bottom-color: var(--amber);
+}
+
+/* --- The page itself --- */
+
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 24px 8px;
+}
+
+.page > :first-child { margin-top: 0; }
+
+h2 {
+  margin: 44px 0 14px;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+}
+
+h3 {
+  margin: 30px 0 8px;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--petrol);
+}
+
+@media (prefers-color-scheme: dark) {
+  h3 { color: var(--link); }
+}
+
+p, ul, ol { margin: 0 0 16px; }
+
+ul, ol { padding-left: 22px; }
+
+li { margin-bottom: 6px; }
+
+li > ul, li > ol { margin-top: 6px; }
+
+a {
+  color: var(--link);
+  text-decoration-color: color-mix(in srgb, var(--link) 35%, transparent);
+  text-underline-offset: 2px;
+}
+
+a:hover { text-decoration-color: currentColor; }
+
+strong { font-weight: 650; }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 36px 0;
+}
+
+blockquote {
+  margin: 20px 0;
+  padding: 2px 0 2px 18px;
+  border-left: 3px solid var(--amber);
+  color: var(--muted);
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.88em;
+  background: color-mix(in srgb, var(--petrol) 10%, transparent);
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+
+pre {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 14px 16px;
+  overflow-x: auto;
+}
+
+pre code { background: none; padding: 0; }
+
+/* Wide things scroll inside themselves rather than making the page slide. */
+table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: 0 0 20px;
+  font-size: 15px;
+}
+
+th, td {
+  text-align: left;
+  padding: 9px 14px 9px 0;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+
+th {
+  font-weight: 650;
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+img { max-width: 100%; height: auto; }
+
+/* --- Footer --- */
+
+.foot {
+  max-width: 720px;
+  margin: 48px auto 0;
+  padding: 22px 24px 44px;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.foot p { margin: 0 0 6px; }
+
+.fine { font-size: 13px; }
+
+@media (max-width: 560px) {
+  .masthead { padding-top: 32px; }
+  .masthead-inner { gap: 16px; }
+  .appicon { width: 62px; height: 62px; border-radius: 15px; }
+  .masthead h1 { font-size: 22px; }
+  .page { padding-top: 30px; }
+  h2 { margin-top: 36px; font-size: 20px; }
+}
